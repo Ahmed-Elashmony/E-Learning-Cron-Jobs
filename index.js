@@ -8,5 +8,10 @@ const port = process.env.PORT;
 
 connectDB();
 cronJob();
-
+app.use("/", (req, res) => {
+  res.json({ message: "Cron Jobs Working" });
+});
+app.use("*", (req, res) => {
+  res.json({ message: "Invaild Path" });
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
