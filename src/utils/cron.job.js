@@ -3,7 +3,7 @@ import userModel from "../../DB/model/user.model.js";
 import tokenModel from "../../DB/model/token.model.js";
 
 export const cronJob = function () {
-  scheduleJob("* * 5 * *", async function () {
+  scheduleJob("25 * 5 * *", async function () {
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
     await userModel.deleteMany({
