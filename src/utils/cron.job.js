@@ -1,6 +1,7 @@
 import { scheduleJob } from "node-schedule";
 import userModel from "../../DB/model/user.model.js";
 import tokenModel from "../../DB/model/token.model.js";
+import orderModel from "../../DB/model/order.model.js";
 
 export const cronJob = function () {
   scheduleJob("* * 1 * *", async function () {
@@ -18,6 +19,11 @@ export const cronJob = function () {
     await tokenModel.deleteMany({
       createdAt: {
         $lt: new Date(new Date().setMonth(new Date().getMonth() - 1)),
+      },
+    });
+    await orderModel.deleteMany({
+      createdAt: {
+        $lt: new Date(new Date().setMonth(new Date().getMonth() - 2)),
       },
     });
     console.log("Successfully Deleted");
