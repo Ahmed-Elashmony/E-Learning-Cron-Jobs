@@ -6,7 +6,7 @@ import userModel from "../../DB/model/user.model.js";
 export const cronJob = function () {
   console.log("Cron job initialized");
 
-  scheduleJob("32 * * * *", async function () {
+  scheduleJob("45 * * * *", async function () {
     console.log("Cron job running");
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
