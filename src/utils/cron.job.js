@@ -4,8 +4,9 @@ import tokenModel from "../../DB/model/token.model.js";
 import orderModel from "../../DB/model/order.model.js";
 
 export const cronJob = function () {
-  console.log("test");
-  scheduleJob("25 * * * *", async function () {
+  console.log("Cron job initialized");
+  scheduleJob("32 * * * *", async function () {
+    console.log("Cron job running");
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
     await userModel.deleteMany({
@@ -28,5 +29,7 @@ export const cronJob = function () {
       },
     });
     console.log("Successfully Deleted");
-  });
+  }catch (error) {
+      console.error("Error running cron job:", error);
+    });
 };
