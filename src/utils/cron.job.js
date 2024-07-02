@@ -5,7 +5,7 @@ import orderModel from "../../DB/model/order.model.js";
 
 export const cronJob = function () {
   console.log("Cron job initialized");
-  scheduleJob("32 * * * *", async function () {
+  scheduleJob("43 * * * *", async function () {
     console.log("Cron job running");
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
