@@ -5,12 +5,14 @@ import tokenModel from "../../DB/model/token.model.js";
 import userModel from "../../DB/model/user.model.js";
 
 export const cronJob = function () {
-  const job = new CronJob(
+  console.log("Cron job initialized");
+
+  new CronJob(
     "20 * * * * *", // cronTime
     function () {
       console.log("You will see this message every second");
     }, // onTick
-    console.log("Successfully Deleted"), // onComplete
+    null, // onComplete
     true, // start
     "America/Los_Angeles" // timeZone
   );
