@@ -6,12 +6,12 @@ import userModel from "../../DB/model/user.model.js";
 
 export const cronJob = function () {
   const job = new CronJob(
-    "* * * * * *", // cronTime
+    "20 * * * * *", // cronTime
     function () {
       console.log("You will see this message every second");
     }, // onTick
     console.log("Successfully Deleted"), // onComplete
-    console.log("Cron job running"), // start
+    true, // start
     "America/Los_Angeles" // timeZone
   );
 
