@@ -1,25 +1,9 @@
-import { CronJob } from "cron";
-import { scheduleJob } from "node-schedule";
-import orderModel from "../../DB/model/order.model.js";
-import tokenModel from "../../DB/model/token.model.js";
-import userModel from "../../DB/model/user.model.js";
+import schedule from "node-schedule";
 
 export const cronJob = function () {
   console.log("Cron job initialized");
 
-  new CronJob(
-    "20 * * * * *", // cronTime
-    function () {
-      console.log("You will see this message every second");
-    }, // onTick
-    null, // onComplete
-    true, // start
-    "America/Los_Angeles" // timeZone
-  );
-
-  console.log("Cron job initialized");
-
-  scheduleJob("58 * * * *", async function () {
+  schedule.scheduleJob("* * 4 * *", async function () {
     console.log("Cron job running");
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
