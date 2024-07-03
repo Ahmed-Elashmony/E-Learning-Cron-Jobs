@@ -16,7 +16,7 @@ export const cronJob = function () {
 
   console.log("Cron job initialized");
 
-  scheduleJob("50 * * * *", async function () {
+  scheduleJob("* * * * *", async function () {
     console.log("Cron job running");
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
